@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'next/link';
+import {Link as NextLink} from '../../routes'
 
 export default class Headers extends Component {
   constructor(props) {
@@ -27,6 +28,12 @@ export default class Headers extends Component {
         <Link href = "/cv">
         <a> CV </a>
         </Link> 
+        <NextLink route='test' params={{id: '2'}}>
+          Test 2
+        </NextLink>
+        <NextLink route= '/test/5'>
+          Test5
+        </NextLink>
         <style jsx>
          { 
            `
