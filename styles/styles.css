@@ -1,4 +1,28 @@
-
+@font-face {
+  font-family: "Montserrat";
+  src: url("/static/fonts/2.1 Montserrat-Regular.ttf.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/static/fonts/2.2 Montserrat-Bold.ttf.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/static/fonts/2.4 Montserrat-Light.ttf.ttf");
+  font-weight: lighter;
+  font-style: normal;
+}
+html,
+body {
+  font-family: "Montserrat";
+}
+a {
+  text-align: center;
+}
 .lay {
   color: #be0000;
 }
