@@ -1,119 +1,65 @@
-// import React, { Component } from 'react'
-// import Link from 'next/link';
+import React from 'react'
+import Link from 'next/link';
 import {Link as NextLink} from '../../routes'
-
-// export default class Headers extends Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-       
-//     }
-//   }
-  
-//   render() {
-//     return (
-//     <div>
-//         <Link href = "/" >
-//         <a> Home </a> 
-//         </Link> 
-//         <Link href = "/about" >
-//         <a> About </a> 
-//         </Link> 
-//         <Link href = "/blogs" >
-//         <a> Blog </a> 
-//         </Link> 
-//         <Link href = "/portfolios" >
-//         <a> Portfolios </a> 
-//         </Link> 
-//         <Link href = "/cv">
-//         <a> CV </a>
-//         </Link> 
-//         {/* <NextLink route='test' params={{id: '2'}}>
-//           Test 2
-//         </NextLink>
-//         <NextLink route= '/test/5'>
-//           Test5
-//         </NextLink> */}
-      
-//     </div>
-//     )
-//   }
-// }
-
- 
-  import React, { useState} from 'react';
- import {
+import {
    Collapse,
    Navbar,
    NavbarToggler,
    NavbarBrand,
    Nav,
-   NavItem,
-   NavLink,
-   UncontrolledDropdown,
-   DropdownToggle,
-   DropdownMenu,
-   DropdownItem
- } from 'reactstrap';
+   NavItem } from 'reactstrap';
+ const BsNavLink = (props)=>{
+    const { route, title} = props;
+    return (
+      <Link href={route}>
+        <a className="nav-link">{title}</a>
+      </Link>
+    )
 
+  }
 
- const Header = (props) => {
-   const [isOpen, setIsOpen] = useState(false);
-
-   const toggle = () => setIsOpen(!isOpen);
-
-   return ( <
-     div >
-     <
-     Navbar color = "light"
-     light expand = "md" >
-     <
-     NavbarBrand href = "/" > reactstrap < /NavbarBrand> <
-     NavbarToggler onClick = {
-       toggle
-     }
-     /> <
-     Collapse isOpen = {
-       isOpen
-     }
-     navbar >
-     <
-     Nav className = "ml-auto"
-     navbar >
-     <
-     NavItem >
-     <
-     NavLink href = "/components/" > Components < /NavLink> <
-     /NavItem> <
-     NavItem >
-     <
-     NavLink href = "https://github.com/reactstrap/reactstrap" > GitHub < /NavLink> <
-     /NavItem> <
-     UncontrolledDropdown nav inNavbar >
-     <
-     DropdownToggle nav caret >
-     Options <
-     /DropdownToggle> <
-     DropdownMenu right >
-     <
-     DropdownItem >
-     Option 1 <
-     /DropdownItem> <
-     DropdownItem >
-     Option 2 <
-     /DropdownItem> <
-     DropdownItem divider / >
-     <
-     DropdownItem >
-     Reset <
-     /DropdownItem> <
-     /DropdownMenu> <
-     /UncontrolledDropdown> <
-     /Nav> <
-     /Collapse> <
-     /Navbar> <
-     /div>
+ export default class Headers extends React.Component {
+   constructor(props) {
+     super(props);
+     this.toggle = this.toggle.bind(this);
+     this.state = { isOpen: false};
+     
+   }
+   
+ 
+   toggle() {
+    this.setState({
+     isOpen: !this.state.isOpen
+    });
+   } 
+   render(){
+   return (
+      <div>
+     <Navbar color = "light" light expand = "md">
+        <NavbarBrand href = "/" > Ramil </NavbarBrand> <
+        NavbarToggler onClick = { this.toggle}/> 
+        <Collapse isOpen = {this.state.isOpen} navbar>
+            <Nav className = "ml-auto" navbar>
+                <NavItem>
+                    <BsNavLink route="/" title="Home"/>
+                </NavItem> 
+                <NavItem>
+                    <BsNavLink route="/about" title="About"/>
+                </NavItem> 
+                <NavItem>
+                    <BsNavLink route="/blogs" title="Blog"/>
+                </NavItem>
+                <NavItem>
+                    <BsNavLink route="/portfolios" title="Portfolio"/>
+                </NavItem>
+                <NavItem>
+                    <BsNavLink route="/cv" title="CV"/>
+                </NavItem>
+            </Nav> 
+        </Collapse> 
+    </Navbar> 
+     </div>
    );
+  }
  }
 
- export default Header;

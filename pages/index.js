@@ -17,6 +17,12 @@ class Index extends React.Component {
     this.roles = ['Developer', 'Tech Lover', 'Team', ' Creator', 'React.js', 'Next.js'];
   }
 
+
+   static async getInitialProps() {
+     console.log("index getInitialProps");
+     return{}
+   }
+
   componentDidMount() {
     this.animateCard();
   }
@@ -81,7 +87,7 @@ class Index extends React.Component {
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
                   <h1>
-                    Welcome to the portfolio website of Filip Jerga.
+                    Welcome to the portfolio website of Nawaf.
                     Get informed, collaborate and discover projects I was working on through the years!
                   </h1>
                 </div>

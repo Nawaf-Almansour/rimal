@@ -1,43 +1,55 @@
-import React, { Component } from 'react'
+import React from 'react'
 import BaseLayout from '../components/layouts/BaseLayout';
 import axios from 'axios';
 import Link from 'next/Link';
+// import { Col, Row, Button } from 'reactstrap';
 
-export default class portfolios extends Component {
-  
-  static async getInitialProps() {
-    let posts = [];
+ class portfolios extends React.Component {
+static work(){
+  console.log("work static");
+}
+ static async getInitialProps() {
+    let portfolios = [];
+    console.log("try start");
     try {
       const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      posts = response.data;
-      // console.log(`posts ${posts}`);
+      console.log(`response ${response}`);
+      portfolios = response.data;
+       console.log(`posts ${portfolios}`);
     } catch (err) {
+      console.log(`err `);
       console.error(`portfolios -> ${err}`);
     }
 
-    return {posts: posts.splice(0, 10)} ;
+    return {portfolios: portfolios.splice(0, 10)} ;
+    //  return {portfolios};
   }
   
-  renderPosts(posts){
-    return posts.map((post, index) => {
+  renderPosts(portfolios) {
+    return portfolios.map((post) => {
       return (
-        <li Key={index}> <Link as={`/portfolio/${post.id} `} href ="/portfolio/[id]">
-              <a> {post.title} </a> 
+        <li > 
+            <Link as={`/portfolio/${post.id} `} href ="/portfolio/[id]">
+               <a> {post.title} </a> 
             </Link> 
-        </li>
+        </li> 
       )
     })
   }
 
   render() {
-  const {posts} = this.props;
+    console.log(this.props);
+ const portfolios = this.props.portfolios;
+         console.log(`render posts ${portfolios}`);
+
     return (
          <BaseLayout>
             <h1> Hello... portfolios </h1>
             <ul>
-             { this.renderPosts(posts) }
+              { this.renderPosts(portfolios) } 
             </ul>
          </BaseLayout>
     )
   }
 }
+export default portfolios;
