@@ -42,6 +42,8 @@ class Index extends React.Component {
 
 
   render() {
+        const { isAuthenticated, user } = this.props.auth;
+
     const { isFlipping } = this.state;
 
     return (
@@ -87,6 +89,8 @@ class Index extends React.Component {
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
                   <h1>
+                      { isAuthenticated && <span> <b> {user.name} </b> </span> }
+
                     Welcome to the portfolio website of Nawaf.
                     Get informed, collaborate and discover projects I was working on through the years!
                   </h1>

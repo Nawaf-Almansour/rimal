@@ -2,12 +2,13 @@ import React from 'react'
 import BaseLayout from '../components/layouts/BaseLayout';
 import axios from 'axios';
 import Link from 'next/Link';
+import BasePage from "../components/BasePage";
+import { Col, Row, Button ,Card,CardHeader,CardBody,CardTitle ,CardText} from 'reactstrap';
+// import { Link } from '../routes'
+
 // import { Col, Row, Button } from 'reactstrap';
 
  class portfolios extends React.Component {
-static work(){
-  console.log("work static");
-}
  static async getInitialProps() {
     let portfolios = [];
     console.log("try start");
@@ -17,7 +18,6 @@ static work(){
       portfolios = response.data;
        console.log(`posts ${portfolios}`);
     } catch (err) {
-      console.log(`err `);
       console.error(`portfolios -> ${err}`);
     }
 
@@ -25,30 +25,41 @@ static work(){
     //  return {portfolios};
   }
   
-  renderPosts(portfolios) {
-    return portfolios.map((post) => {
+  renderPortfolios(portfolios) {
+    return portfolios.map((post, index) => {
       return (
-        <li > 
-            <Link as={`/portfolio/${post.id} `} href ="/portfolio/[id]">
-               <a> {post.title} </a> 
-            </Link> 
-        </li> 
+     <Col md="4">
+  <React.Fragment key={index}>
+    <span>
+      <Card className="portfolio-card">
+        <CardHeader className="portfolio-card-header">Some Position {index}</CardHeader>
+        <CardBody>
+          <p className="portfolio-card-city"> Some Location {index} </p>
+          <CardTitle className="portfolio-card-title"><a>{post.title}</a>{index}</CardTitle>
+          <CardText className="portfolio-card-text">Some Description {index}</CardText>
+          <div className="readMore"> </div>
+        </CardBody>
+      </Card>
+    </span>
+  </React.Fragment>
+</Col>
+
       )
     })
   }
 
   render() {
-    console.log(this.props);
- const portfolios = this.props.portfolios;
-         console.log(`render posts ${portfolios}`);
+    const { portfolios } = this.props;
+    // const { isAuthenticated, isSiteOwner } = this.props.auth;
 
     return (
-         <BaseLayout>
-            <h1> Hello... portfolios </h1>
-            <ul>
-              { this.renderPosts(portfolios) } 
-            </ul>
-         </BaseLayout>
+        <BaseLayout title="Filip Jerga - Learn About My Experience" {...this.props.auth}>
+        <BasePage className="portfolio-page" title="Portfolios">
+          <Row>
+            { this.renderPortfolios(portfolios) }
+          </Row>
+        </BasePage>
+      </BaseLayout>
     )
   }
 }

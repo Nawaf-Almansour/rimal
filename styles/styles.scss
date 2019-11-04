@@ -1,10 +1,10 @@
 @import './shared/fonts';
 @import './index';
 @import './shared/header';
+@import './shared/colors';
 
 
-html,
-body {
+html, body {
   height: 100%;
   width: 100%;
   font-family: 'Montserrat', 'Helvetica';
@@ -22,8 +22,9 @@ body {
 }
 
 .absolute {
-  position: absolute;
+  position: absolute !important; 
 }
+
 
 .error {
   font-weight: 700;
