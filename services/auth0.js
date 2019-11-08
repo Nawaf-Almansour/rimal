@@ -6,7 +6,6 @@ import axios from 'axios';
 import {  getCookieFromReq} from '../helpers/utils';
 
 const CLIENT_ID = '6SOL1NBuonS9N3WaQ7e5y8FsWCJ3gWPG';
-
 class Auth0 {
 
     constructor() {

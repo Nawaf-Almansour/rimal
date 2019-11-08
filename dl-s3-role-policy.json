@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetObject",
+            "s3:GetObjectVersion"
+        ],
+        "Resource": [
+            "arn:aws:s3:::rmail-dev",
+            "arn:aws:s3:::rmail-dev/*"
+        ]
+    }]
+}
+
+
+
+// aws iam put - role - policy\
+//     --role - name nawaf - dev\
+//     --policy - name nawaf - dev - policy\
+//     --policy - document file: //dl-s3-role-policy.json

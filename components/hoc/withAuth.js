@@ -48,3 +48,10 @@ export default role => Component =>
   }
 }
 
+//mongodb+srv://<username>:<password>@cluster0-gilob.mongodb.net/test?retryWrites=true&w=majority
+
+//mongodb+srv://Test:TestTest@cluster0-gilob.mongodb.net/test?retryWrites=true&w=majority
+
+// Your unique External ID: a45c2896 - 514 b - 4 aaa - abf3 - cd8856b2af60
+// Atlas AWS IAM User ARN: arn: aws: iam::962727799805: user / atlas - data - lake
+
