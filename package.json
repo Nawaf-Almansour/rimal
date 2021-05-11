@@ -28,7 +28,7 @@
     "fontfaceobserver": "^2.1.0",
     "formik": "^1.5.8",
     "immutable": "^4.0.0-rc.12",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.6.0",
     "moment": "^2.24.0",
